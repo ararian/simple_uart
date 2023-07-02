@@ -5,7 +5,7 @@ module serial_send (
     output logic       DATA_OUT,
     output logic       BUSY);
 
-    parameter  WAIT_DIV = 868; // 100 MHz / 115.2 kbps
+    parameter  WAIT_DIV = 10; // 868 = 100 MHz / 115.2 kbps
     localparam WAIT_LEN = $clog2(WAIT_DIV);
 
     //状態と内部信号の宣言
@@ -19,7 +19,7 @@ module serial_send (
     logic          [3:0] bit_cnt, n_bit_cnt;
 
     //組み合わせ回路部分
-    assign DATA_OUT = data_reg[0];
+    assign DATA_OUT = data_reg[0]; //出力データの設定
 
     always_comb begin
         BUSY       = 1'b0;

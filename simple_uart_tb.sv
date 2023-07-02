@@ -1,9 +1,12 @@
+`timescale 1ps/1ps
+
 module simple_uart_tb();
     logic   CLK, RST;
     logic   [7:0]   DATA_IN;
     logic   WE, DATA_OUT, BUSY;
 
-    simple_uart #(.WAIT_DIV(5)) si_uart (.CLK(CLK), .RST(RST), .DATA_IN(DATA_IN), .WE(WE), .DATA_OUT(DATA_OUT), .BUSY(BUSY));
+    parameter STEP = 100000;
+    serial_send #(.WAIT_DIV(5)) si_uart (.CLK(CLK), .RST(RST), .DATA_IN(DATA_IN), .WE(WE), .DATA_OUT(DATA_OUT), .BUSY(BUSY));
 
     always begin
         CLK <= 1'b1; #10;
@@ -19,8 +22,8 @@ module simple_uart_tb();
 
     initial begin
         WE <= 1'b0; #90;
-        WE <= 1'b0; #20;
-        WE <= 1'b0;
+        WE <= 1'b1; #20;
+        WE <= 1'b0; 
         wait (BUSY == 1'b0); #100;
         $finish;
     end

@@ -1,4 +1,0 @@
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ara/Documents/projects/simple_uart/simple_uart.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module serial_send
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/ara/Documents/projects/simple_uart/simple_uart_tb.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module simple_uart_tb

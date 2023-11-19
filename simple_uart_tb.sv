@@ -5,7 +5,7 @@ module simple_uart_tb();
     logic   [7:0]   DATA_IN;
     logic   WE, DATA_OUT, BUSY;
 
-    parameter STEP = 100000;
+    parameter STEP = 2000;
     serial_send #(.WAIT_DIV(5)) si_uart (.CLK(CLK), .RST(RST), .DATA_IN(DATA_IN), .WE(WE), .DATA_OUT(DATA_OUT), .BUSY(BUSY));
 
     always begin

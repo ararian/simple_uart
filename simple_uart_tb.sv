@@ -5,7 +5,7 @@ module simple_uart_tb();
     logic   [7:0]   DATA_IN;
     logic   WE, DATA_OUT, BUSY;
 
-    parameter STEP = 2000;
+    parameter STEP = 200;
     serial_send #(.WAIT_DIV(5)) si_uart (.CLK(CLK), .RST(RST), .DATA_IN(DATA_IN), .WE(WE), .DATA_OUT(DATA_OUT), .BUSY(BUSY));
 
     always begin
@@ -24,7 +24,7 @@ module simple_uart_tb();
         WE <= 1'b0; #90;
         WE <= 1'b1; #20;
         WE <= 1'b0; 
-        wait (BUSY == 1'b0); #100;
+        wait (BUSY == 1'b0); #120;
         $finish;
     end
 endmodule
